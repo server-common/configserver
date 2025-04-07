@@ -70,6 +70,6 @@ jib {
         jvmFlags = listOf(
             "-Djasypt.encryptor.password=\${JASYPT_ENCRYPTOR_PASSWORD}",
         )
-        ports = listOf("50050")
+        ports = listOf("50000")
     }
 }
