@@ -68,8 +68,7 @@ jib {
     }
     container {
         jvmFlags = listOf(
-            "-Djasypt.encryptor.password=\${JASYPT_ENCRYPTOR_PASSWORD}",
+            "-Djasypt.encryptor.password=\${ENC_PWD}",
         )
-        ports = listOf("50000")
     }
 }
