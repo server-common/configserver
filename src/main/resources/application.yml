@@ -24,6 +24,13 @@ spring:
 encrypt:
   key: ENC({2LuokC1AUgN6RWBLF53NvNJSmWmq6ngxpxwQOLH14yDbPYWWeuxDdvbYRzq2gHAnzfvEuns9kJAAVpm5YMq0hNGZMksQ5nByMoadnT1ZdIlAi5f7to72L4TaqNrk3nr21yJufAN62/CpQUIxRezgGaYphGlXruMAlwtToakg5n7sacZ6PwxYjhoTqmIuvJfJmUkywbY355thmykq2BBAyPOBYRlPRhT3EcgT6ayaBGnORz2h4o/eYAoMex0ML4hMQnFwfCbV3MaAFEJJgTefKg==})
 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka
+
 jasypt:
   encryptor:
     algorithm: PBEWITHHMACSHA512ANDAES_256
