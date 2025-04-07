@@ -1,0 +1,31 @@
+server:
+  port: 50000
+  shutdown: graceful
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true
+        git:
+          default-label: main
+          uri: git@gitlab.com:seg-server/common/configfile.git
+          ignoreLocalSshSettings: true
+          strictHostKeyChecking: false
+          hostKey: ENC({SxyxaRiWLg8R5zTfGQxMQ7WCE/BEEWXcoPAJyMCqyZkNFRWTq2Bo5XK4HDihEg4hAq7aI5Wkg+Z3IiMmCxUzqamIQt7+uuZq+IpMOtkFGPj912C++LlpCMnH09ahac1CF2RsdmEur4KGfmrt2pWymGpsrfVXbQDRAEmuxnVrw55Sfa50NJ+QqZ5/i+QG6qhOMiMRp+5wnohBukEmCaHoPEkBdGXMDEdqPwPbZpAZxhQ=})
+          host-key-algorithm: ENC({VUGf2esx4m5WF4tim4tH0j7ESSpUwUkvEhCQ/MbkZldluzfMe4UZLLwRNEsmZnezNPp5+hJ9pJWz8NICsuDURw==})
+          private-key: |
+            ENC({2Cx0+vurmvTFvCWPlOJt69qgfTzxVC654yxBgc0HjuzVbZBaMaaZ5RJT8tm/8Gp4Hwca9CeL8oODIWM7pueuLJpdgdCnx+Nr0mmtcwZ3Dj4wUpHZhsl+bO/3YgGylgqHgpu+qmsj+U8HkwV+iO9lFie9oT/xCmdeSO8SpeYzQlS1D9YsNgXngBUYpBSrDVAOejz+JjJMFDZOIMu1/q9+w3L/Yo9b4UnieSuYG8l3kUmtsQ2Na/VBZpbGfLUuE5+nMWb5IwdcYJVEd25nK+WeUNHywsWZRpRGVA36cUklVVDBsPBAXbSuBukBOX/KLX/XjxA0BGag/Eml7oT3xVl90cpK+7A7hmtQVPGmcirQlISjKD1go+X4tfahahhDlBDFaF8cQCHRKqTXLm+6yURRB6iGyKUeKa4/QzuxqfKhpstw7f7bzQyqKGTfLxPe/6tq02ks449/ocyitwBX6bQWoqdOHx2i0fqoGZAjHFPzWKQcJGzfUDPRpRZbA4m84ixU1SksqX74qyqZ1QBs0HkOLYYVb7oQdFMy8NGiDx8IRz1Okxru+dzO7isxaSi7yzRZ})
+          passphrase: ENC({H4ugI/h6A382a5vu6/PG1e30L7Lkm3wFtg1Aq4uIhJ3cTicVyWERxeSuqoZyA+EH})
+
+encrypt:
+  key: ENC({2LuokC1AUgN6RWBLF53NvNJSmWmq6ngxpxwQOLH14yDbPYWWeuxDdvbYRzq2gHAnzfvEuns9kJAAVpm5YMq0hNGZMksQ5nByMoadnT1ZdIlAi5f7to72L4TaqNrk3nr21yJufAN62/CpQUIxRezgGaYphGlXruMAlwtToakg5n7sacZ6PwxYjhoTqmIuvJfJmUkywbY355thmykq2BBAyPOBYRlPRhT3EcgT6ayaBGnORz2h4o/eYAoMex0ML4hMQnFwfCbV3MaAFEJJgTefKg==})
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    key-obtention-iterations: 10000
+    pool-size: 1
