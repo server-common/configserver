@@ -37,7 +37,7 @@ deploy:
   script:
     - docker pull $DOCKER_LATEST_IMAGE_NAME
     - docker stop $CI_PROJECT_NAME || true && docker rm -f $CI_PROJECT_NAME || true
-    - docker run -d -p 50000:50000 -e ENC_PWD=$CLOUD_ENC_PWD --name $CI_PROJECT_NAME $DOCKER_LATEST_IMAGE_NAME
+    - docker run -d -p 50000:50000 -e ENC_PWD=$ENC_PWD_CLOUD --name $CI_PROJECT_NAME $DOCKER_LATEST_IMAGE_NAME
     - docker system prune -f
   after_script:
     - docker logout
