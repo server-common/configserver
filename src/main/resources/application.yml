@@ -20,6 +20,9 @@ spring:
           private-key: |
             ENC({2Cx0+vurmvTFvCWPlOJt69qgfTzxVC654yxBgc0HjuzVbZBaMaaZ5RJT8tm/8Gp4Hwca9CeL8oODIWM7pueuLJpdgdCnx+Nr0mmtcwZ3Dj4wUpHZhsl+bO/3YgGylgqHgpu+qmsj+U8HkwV+iO9lFie9oT/xCmdeSO8SpeYzQlS1D9YsNgXngBUYpBSrDVAOejz+JjJMFDZOIMu1/q9+w3L/Yo9b4UnieSuYG8l3kUmtsQ2Na/VBZpbGfLUuE5+nMWb5IwdcYJVEd25nK+WeUNHywsWZRpRGVA36cUklVVDBsPBAXbSuBukBOX/KLX/XjxA0BGag/Eml7oT3xVl90cpK+7A7hmtQVPGmcirQlISjKD1go+X4tfahahhDlBDFaF8cQCHRKqTXLm+6yURRB6iGyKUeKa4/QzuxqfKhpstw7f7bzQyqKGTfLxPe/6tq02ks449/ocyitwBX6bQWoqdOHx2i0fqoGZAjHFPzWKQcJGzfUDPRpRZbA4m84ixU1SksqX74qyqZ1QBs0HkOLYYVb7oQdFMy8NGiDx8IRz1Okxru+dzO7isxaSi7yzRZ})
           passphrase: ENC({H4ugI/h6A382a5vu6/PG1e30L7Lkm3wFtg1Aq4uIhJ3cTicVyWERxeSuqoZyA+EH})
+          clone-on-start: true
+          refresh-rate: 30
+          basedir: /tmp/config-repo
 
 encrypt:
   key: ENC({2LuokC1AUgN6RWBLF53NvNJSmWmq6ngxpxwQOLH14yDbPYWWeuxDdvbYRzq2gHAnzfvEuns9kJAAVpm5YMq0hNGZMksQ5nByMoadnT1ZdIlAi5f7to72L4TaqNrk3nr21yJufAN62/CpQUIxRezgGaYphGlXruMAlwtToakg5n7sacZ6PwxYjhoTqmIuvJfJmUkywbY355thmykq2BBAyPOBYRlPRhT3EcgT6ayaBGnORz2h4o/eYAoMex0ML4hMQnFwfCbV3MaAFEJJgTefKg==})
