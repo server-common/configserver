@@ -1,6 +1,9 @@
 server:
   port: 50000
   shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
 
 spring:
   application:
