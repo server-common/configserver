@@ -58,6 +58,12 @@ tasks.withType<Test> {
 jib {
     from {
         image = "amazoncorretto:17-alpine-jdk"
+        platforms {
+            platform {
+                architecture = "arm64"
+                os = "linux"
+            }
+        }
     }
     to {
         image = System.getenv("JIB_IMAGE")
@@ -73,6 +79,6 @@ jib {
             "-Dspring.security.user.password=" + System.getenv("EUREKA_USER_PWD"),
             "-Djasypt.encryptor.password=\${ENC_PWD}",
         )
-        ports = listOf("50000")
+        ports = listOf("8760")
     }
 }
