@@ -29,7 +29,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.cloud:spring-cloud-config-server")
     implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
-//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -69,7 +69,8 @@ jib {
     }
     container {
         jvmFlags = listOf(
-
+            "-Dspring.security.user.name=" + System.getenv("EUREKA_USER_NAME"),
+            "-Dspring.security.user.password=" + System.getenv("EUREKA_USER_PWD"),
             "-Djasypt.encryptor.password=\${ENC_PWD}",
         )
         ports = listOf("50000")

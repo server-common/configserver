@@ -1,7 +1,7 @@
 variables:
   JIB_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH-$CI_COMMIT_SHORT_SHA
-#  EUREKA_USER_NAME: $EUREKA_USER_NAME
-#  EUREKA_USER_PWD: $EUREKA_USER_PWD
+  EUREKA_USER_NAME: $EUREKA_USER_NAME
+  EUREKA_USER_PWD: $EUREKA_USER_PWD
 
 default:
   interruptible: true
@@ -24,22 +24,28 @@ build:
     - ./gradlew jib --no-daemon
     - echo "jib 완료"
   tags:
-    - shared-mac
+    - shared-ubuntu
 
 deploy:
   stage: deploy
   needs:
     - job: build
   variables:
-    DOCKER_LATEST_IMAGE_NAME: $CI_REGISTRY_IMAGE:latest
+    IMAGE_PATH: $CI_REGISTRY_IMAGE:latest
   before_script:
     - docker login $CI_REGISTRY -u $TOKEN_USER --password $TOKEN_PWD
   script:
-    - docker pull $DOCKER_LATEST_IMAGE_NAME
+    - echo "Docker pull 시작"
+    - docker pull $IMAGE_PATH
+    - echo "Docker pull 완료"
     - docker stop $CI_PROJECT_NAME || true && docker rm -f $CI_PROJECT_NAME || true
-    - docker run -d -p 50000:50000 -e ENC_PWD=$ENC_PWD_CLOUD --restart=unless-stopped --name $CI_PROJECT_NAME $DOCKER_LATEST_IMAGE_NAME
+    - echo "Docker Container 정지, 제거 완료"
+    - docker run -d -p 8760:8760 -e ENC_PWD=$ENC_PWD_CLOUD --restart=unless-stopped --name $CI_PROJECT_NAME $IMAGE_PATH
+    - echo "Docker Container 실행 완료"
     - docker system prune -f
+    - echo "Docker 불필요 리소스 제거 완료"
+    - echo "Docker 작업 완료"
   after_script:
     - docker logout
   tags:
-    - shared-mac
+    - shared-ubuntu
